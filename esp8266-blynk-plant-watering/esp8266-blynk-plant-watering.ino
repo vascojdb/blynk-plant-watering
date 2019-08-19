@@ -15,8 +15,8 @@
 #define USE_SOIL_MOISTURE_SENSOR                // Comment this out if you are not using an analog (3 wire) soil moisture sensor
 
 // Physical settings:
-#define PUMP_PIN                        2       // Physical pin where you connected the pump relay/driver
-#define PUMP_LOGIC_INVERTED             true    // Select true if the pump turns ON when the output is low (0V)
+#define PUMP_PIN                        4       // Physical pin where you connected the pump relay/driver
+#define PUMP_LOGIC_INVERTED             false   // Select true if the pump turns ON when the output is low (0V)
 #define TEMP_SENSOR_PIN                 14      // Physical pin where you connected the 1-Wire temperature sensor
 #define MOISTURE_SENSOR_POWER_PIN       5       // Physical ping where you connect the soil moisture sensor power (+) pin. Analog is connected to AN0
 
@@ -180,8 +180,8 @@ void setup() {
     ds.setResolution(10);
     #endif
     
-    // Read the sensors every 5 seconds:
-    timerSystem.setInterval(10000L, readSensors);
+    // Read the sensors every 60 seconds:
+    timerSystem.setInterval(60000L, readSensors);
     
     Serial.println("Ready...");
 }
